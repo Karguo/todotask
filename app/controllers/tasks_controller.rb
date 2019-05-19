@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   def index 
     if user_signed_in?
-      @tasks = Task.where(user_id: :current_user_id).order("created_at DESC")
+      @tasks = Task.where(:user_id => current_user.id).order("created_at DESC")
     end
   end
 
@@ -37,6 +37,12 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     redirect_to root_path
+  end
+
+  def complete
+    @task = Task.find(params[:id])
+    @task.update_attribute(:completed_at, Time.now)
+    redirect_to root_path 
   end
 
   private
