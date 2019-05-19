@@ -1,3 +1,3 @@
 # TODOTask
 
-Another Ruby on Rails app playaround. Played around with Bootstrap gem this time. 
+Another CRUD app using Ruby on Rails. Used the Bootstrap gem this time. 
